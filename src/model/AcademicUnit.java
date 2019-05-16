@@ -1,5 +1,7 @@
 package model;
 
+import java.util.List;
+
 public class AcademicUnit implements Comparable<AcademicUnit> {
 
     private AcademicUnit left;
@@ -41,6 +43,40 @@ public class AcademicUnit implements Comparable<AcademicUnit> {
 
     public String getDirector() {
         return director;
+    }
+
+    public void preOrder(List<AcademicUnit> list){
+        list.add(this);
+
+        if (left != null){
+            left.preOrder(list);
+        }
+        if (right != null){
+            right.preOrder(list);
+        }
+    }
+
+    public void inOrder(List<AcademicUnit> list){
+        if (left != null){
+            left.inOrder(list);
+        }
+
+        list.add(this);
+
+        if (right != null){
+            right.inOrder(list);
+        }
+    }
+
+    public void postOrder(List<AcademicUnit> list){
+        if (left != null){
+            left.postOrder(list);
+        }
+        if (right != null){
+            right.postOrder(list);
+        }
+
+        list.add(this);
     }
 
     @Override

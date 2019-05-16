@@ -1,5 +1,8 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class University {
 
     private String name;
@@ -39,10 +42,31 @@ public class University {
         }
     }
 
+    public List<AcademicUnit> preorder(){
+        List<AcademicUnit> list = new ArrayList<AcademicUnit>();
 
-    
-    public AcademicUnit search(int c){
+        if (root != null){
+            root.preOrder(list);
+        }
+        return list;
+    }
 
+    public List<AcademicUnit> inOrder(){
+        List<AcademicUnit> list = new ArrayList<>();
+
+        if (root != null){
+            root.inOrder(list);
+        }
+        return list;
+    }
+
+    public List<AcademicUnit> postOrder(){
+        List<AcademicUnit> list = new ArrayList<>();
+
+        if (root != null){
+            root.postOrder(list);
+        }
+        return list;
     }
 
 
